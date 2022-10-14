@@ -1,37 +1,42 @@
 <template>
 	<view class="content">
 		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<button @tap="getMsg">
+			<text>{{title}}</text>
+		</button>
 	</view>
 </template>
 
 <script>
 	import common from '../../utils/common.js'
 	export default {
+		props: {
+			// title: {
+			// 	type: String,
+			// 	default: ""
+			// },
+			list: {
+				type: Array,
+				default(){
+					return []
+				}
+			}
+		},
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello1'
 			}
 		},
 		onLoad() {
-			console.log('时间：' + common.timer())
-			this.getList()
-			let a = getApp().globalData.text
-			console.log(a)
+
 		},
 		methods: {
-			getList(){
-				console.log(this)
-				uni.request({
-				url:common.baseUrl+"/public/getSlider",
-				method:"GET",
-				data:{},
-				success:res=>{console.log(res)},
-				fail:err=>{console.log(err)},
-				complete:()=>{}
-			  })
+			getMsg(){
+				console.log("I am demo")
+				// this.$emit("getMsg", this)
+				uni.navigateTo({
+					url: "/pages/list/list?id=1&name=uniapp"
+				})
 			}
 		}
 	}
