@@ -1,16 +1,14 @@
 import App from './App'
+import store from './store'
+import PubFuc from './common/js/utils.js'
 
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
-// Vue.prototype.$baseUrl = "http://152.136.150.189:3000"; //baseUrl
-// Vue.prototype.$timer =
-//   Date.now ||
-//   function () {
-//     //此时此刻的时间
-//     return new Date().getTimer();
-//   };
+Vue.prototype.$store = store
+
 App.mpType = 'app'
+Vue.prototype.$PubFuc = PubFuc
 const app = new Vue({
     ...App
 })

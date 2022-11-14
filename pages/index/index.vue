@@ -1,71 +1,59 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<button @tap="getMsg">
-			<text>{{title}}</text>
-		</button>
+	<view class="home">
+		<view class="uni-margin-wrap">
+			<swiper class="swiper" circular :indicator-dots="true" :autoplay="true" :interval="2000"
+				:duration="500">
+				<swiper-item>
+					<view class="swiper-item uni-bg-red">A</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-green">B</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item uni-bg-blue">C</view>
+				</swiper-item>
+			</swiper>
+		</view>
 	</view>
 </template>
 
 <script>
-	import common from '../../utils/common.js'
 	export default {
-		props: {
-			// title: {
-			// 	type: String,
-			// 	default: ""
-			// },
-			list: {
-				type: Array,
-				default(){
-					return []
-				}
-			}
-		},
 		data() {
 			return {
-				title: 'Hello1'
 			}
 		},
 		onLoad() {
-
+			
 		},
 		methods: {
-			getMsg(){
-				console.log("I am demo")
-				// this.$emit("getMsg", this)
-				uni.navigateTo({
-					url: "/pages/list/list?id=1&name=uniapp"
-				})
-			}
+			
 		}
 	}
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+	.uni-margin-wrap {
+		width: 690rpx;
+		width: 100%;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
+	.swiper {
+		height: 300rpx;
 	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
+	.swiper-item {
+		display: block;
+		height: 300rpx;
+		line-height: 300rpx;
+		text-align: center;
 	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+	.uni-bg-red{
+		background-color: red;
+	}
+	
+	.uni-bg-green{
+		background-color: green;
+	}
+	.uni-bg-blue{
+		background-color: blue;
 	}
 </style>
